@@ -17,6 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".Graph" />
+        <activity android:name=".INR"></activity>
     </application>
 
 </manifest>

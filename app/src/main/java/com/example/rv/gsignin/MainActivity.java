@@ -39,11 +39,12 @@ public class MainActivity extends AppCompatActivity implements
     private ProgressDialog mProgressDialog;
 
     private SignInButton btnSignIn;
-    private Button btnSignOut,btnGraph;
+    private Button btnSignOut,btnGraph, btn_inr;
 
     private LinearLayout llProfileLayout;
     //private ImageView imgProfilePic;
     private TextView txtName, txtEmail;
+
 
 
     @Override
@@ -59,11 +60,14 @@ public class MainActivity extends AppCompatActivity implements
         //imgProfilePic = (ImageView) findViewById(R.id.imgProfilePic);
         //txtName = (TextView) findViewById(R.id.txtName);
         txtEmail = (TextView) findViewById(R.id.txtEmail);
+        btn_inr =(Button) findViewById(R.id.button_inr);
 
 
         btnSignIn.setOnClickListener(this);
         btnSignOut.setOnClickListener(this);
         btnGraph.setOnClickListener(this);
+        btn_inr.setOnClickListener(this);
+
         //btnRevokeAccess.setOnClickListener(this);
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -152,6 +156,10 @@ public class MainActivity extends AppCompatActivity implements
             case R.id.btn_graph:
                 GoToGraph();
                 break;
+            case R.id.button_inr:
+                Intent bt_inr = new Intent(MainActivity.this , INR.class);
+                startActivity(bt_inr);
+                break;
 
         }
     }
@@ -221,12 +229,14 @@ public class MainActivity extends AppCompatActivity implements
             btnSignIn.setVisibility(View.GONE);
             btnSignOut.setVisibility(View.VISIBLE);
             btnGraph.setVisibility(View.VISIBLE);
+            btn_inr.setVisibility(View.VISIBLE);
             //btnRevokeAccess.setVisibility(View.VISIBLE);
             llProfileLayout.setVisibility(View.VISIBLE);
         } else {
             btnSignIn.setVisibility(View.VISIBLE);
             btnSignOut.setVisibility(View.GONE);
             btnGraph.setVisibility(View.GONE);
+            btn_inr.setVisibility(View.GONE);
             //btnRevokeAccess.setVisibility(View.GONE);
             llProfileLayout.setVisibility(View.GONE);
         }
